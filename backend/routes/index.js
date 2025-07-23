@@ -6,8 +6,8 @@ const cartRoute = require('./cart')
 
 
 
-router.use('/',userRoute);
-router.use('/',productRoute);
+router.use('/user',userRoute);
+router.use('/product',productRoute);
 
 router.use('/cart',cartRoute)
 

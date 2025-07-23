@@ -5,8 +5,8 @@ import Navbar from '../components/Navbar'
 function Default() {
   return (
     <div>
-      <Navbar/>  
-      <Outlet />
+        <Navbar/>
+        <Outlet/>
     </div>
   )
 }

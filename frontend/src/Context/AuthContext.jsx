@@ -1,23 +1,22 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 
 const AuthContext = createContext(undefined);
 
 export function AuthProvider({children}){
+   let[user,setUser] =useState(null);
+  let[isAuthenticated,setIsAuthenticated] =useState(false)
 
-    let[user, setUser] = useState(null);
-    let[isAuthenticated, setIsAuthenticated] = useState(false);
-
-    return(
-        <AuthContext.Provider value={(user,setUser,isAuthenticated,setIsAuthenticated)}>
-            {children}
-        </AuthContext.Provider>
+    return (
+       <AuthContext.Provider value={{user,setUser,isAuthenticated,setIsAuthenticated}}>
+        {children}
+       </AuthContext.Provider>
     )
 }
 
 export function useAuth(){
     const context = useContext(AuthContext);
     if(context === undefined){
-        throw new Error("Use auth must be used within an AuthProvider")
+        throw new Error('useAuth must be used within ans AuthProvider');
     }
-    return context;
+    return context
 }
